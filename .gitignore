@@ -1,0 +1,4 @@
+# ignore large unnecessary files that might cause git unable to push
+IdealPancake/Library
+IdealPancake/ProjectSettings
+IdealPancake/.vscode
