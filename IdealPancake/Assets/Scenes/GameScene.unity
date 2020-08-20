@@ -467,6 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.05
   arrowObject: {fileID: 1274268201}
+  arrowAngle: 100
 --- !u!1 &788486580
 GameObject:
   m_ObjectHideFlags: 0

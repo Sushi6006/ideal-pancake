@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour {
         if (this.isArrowRotating && (!this.isMoving)) {
             this.arrowObject.transform.Rotate((this.arrowAngle * Time.deltaTime) * Vector3.back);
         }
-        
+
     }
 
     void FixedUpdate() {
