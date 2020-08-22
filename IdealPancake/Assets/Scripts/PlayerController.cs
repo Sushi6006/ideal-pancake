@@ -38,59 +38,25 @@ public class PlayerController : MonoBehaviour {
             this.arrowObject.transform.Rotate((this.arrowAngle * Time.deltaTime) * Vector3.back);
         }
 
-        // // tapping part
-        // if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) ||  // touch screen
-        //     (Input.GetMouseButtonDown(0))) {  // mouse button
-        //     /*
-        //      * TODO:
-        //      * - disable arrow
-        //      * - add force / shoot
-        //     */
-        //     Debug.Log("button pressed");
-        //     this.isArrowRotating = false;
-        //     this.isMoving = true;
-        //     // this.rb.AddForce(new Vector3(
-        //     //     this.arrowObject.transform.rotation.eulerAngles.x,
-        //     //     this.arrowObject.transform.rotation.eulerAngles.y,
-        //     //     0.0f
-        //     // ) * speed);
-        //     movement = new Vector3();
-        //     // this.transform.position += this.arrowObject.transform.forward * speed;
-        //     this.rb.AddForce(this.arrowObject.transform.right * speed);
-        // }
+        // tapping part
+        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) ||  // touch screen
+            (Input.GetMouseButtonDown(0))) {  // mouse button
+
+            this.isArrowRotating = false;
+            this.isMoving = true;
+            this.movement = this.arrowObject.transform.up;
+
+        }
     }
 
     // physical update: 
     //   - arrow keys
-    //   - 
     private void FixedUpdate() {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-        movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
-        this.rb.AddForce(movement * speed);
-        // this.transform.position += movement * speed;
+        this.transform.position += movement * speed;
         this.arrowObject.transform.position = this.transform.position;
 
-        // tapping part
-        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) ||  // touch screen
-            (Input.GetMouseButtonDown(0))) {  // mouse button
-            /*
-             * TODO:
-             * - disable arrow
-             * - add force / shoot
-            */
-            Debug.Log("button pressed");
-            this.isArrowRotating = false;
-            this.isMoving = true;
-            // this.rb.AddForce(new Vector3(
-            //     this.arrowObject.transform.rotation.eulerAngles.x,
-            //     this.arrowObject.transform.rotation.eulerAngles.y,
-            //     0.0f
-            // ) * speed);
-            movement = new Vector3();
-            // this.transform.position += this.arrowObject.transform.forward * speed;
-            this.rb.AddForce(this.arrowObject.transform.right * speed);
-        }
     }
 
     // for obstacles
@@ -111,21 +77,4 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    // for testing only
-    private void OnCollisionStay(Collision other) {
-
-        Debug.Log("stayed on: " + other.gameObject);
-
-        if (other.gameObject.CompareTag("obstacle")) {
-            // play sound???
-
-            // stick to the obstacle
-            this.rb.velocity = new Vector3(0, 0, 0);
-            this.rb.angularVelocity = new Vector3(0, 0, 0);
-
-            // reset control
-            this.isArrowRotating = true;
-            this.isMoving = false;
-        }
-    }
 }
