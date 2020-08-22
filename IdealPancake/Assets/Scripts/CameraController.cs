@@ -16,10 +16,11 @@ public class CameraController : MonoBehaviour {
     // It is called after all Update functions have been called.
     void LateUpdate() {
         if (player != null) {
-            this.transform.position = this.offset + new Vector3(
-                player.transform.position.x,
-                player.transform.position.y,
-                player.transform.position.z);
+            // this.transform.position = this.offset + new Vector3(
+            //     player.transform.position.x,
+            //     player.transform.position.y,
+            //     player.transform.position.z);
+            this.transform.position = this.offset + new Vector3(player.transform.position.x, 0.0f, 0.0f);
         }
     }
 }
