@@ -1,2 +1,4 @@
 # ignore large unnecessary files that might cause git unable to push
 # not ignoring anymore bc it caused problems collaborating
+
+IdealPancake/Temp

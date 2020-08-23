@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject scoreText;
 
     // pausing mechanics
+    public GameObject pauseButton;
     private bool isPaused = false;
     public GameObject resumeText;
 
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour {
 
         this.pancakeY = this.GetComponent<Collider>().bounds.size.y;
 
+        // pauseButton.SetActive(false);
         resumeText.SetActive(false);
 
     }

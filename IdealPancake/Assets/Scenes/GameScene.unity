@@ -2427,5 +2427,10 @@ PrefabInstance:
       propertyPath: towallSfx
       value: 
       objectReference: {fileID: 613348895}
+    - target: {fileID: 8337081775367345467, guid: 2dca1ec4f9d3a403a9859ba40cd63e96,
+        type: 3}
+      propertyPath: pauseButton
+      value: 
+      objectReference: {fileID: 1850055534}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dca1ec4f9d3a403a9859ba40cd63e96, type: 3}
