@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -19,12 +21,20 @@ public class PlayerController : MonoBehaviour {
     private bool isArrowRotating = true;
 
     // sounds
-    // TODO: sound to be added
+    public AudioSource dieSfx;
+    public AudioSource eatSfx;
+    public AudioSource towallSfx;
+    public AudioSource jumpSfx;
+    public AudioSource lightSfx;
 
     // scores
     private int bearsEaten = 0;
     private int houseLit = 0;
     public GameObject scoreText;
+
+    // pausing mechanics
+    private bool isPaused = false;
+    public GameObject resumeText;
 
 
     // Start is called before the first frame update
@@ -35,41 +45,115 @@ public class PlayerController : MonoBehaviour {
         this.rb = GetComponent<Rigidbody>();
         this.isMoving = false;
         this.isArrowRotating = true;
+
+        this.scoreText.GetComponent<Text>().text = "TEDDY BEARS EATEN: 0\nHOUSE LIT: 0";
+
+        resumeText.SetActive(false);
+
     }
 
 
     // Update is called once per frame
     void Update() {
+
         if (this.isArrowRotating && (!this.isMoving)) {
             this.arrowObject.transform.Rotate((this.arrowAngle * Time.deltaTime) * Vector3.back);
         }
 
-        // tapping part
-        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) ||  // touch screen
-            (Input.GetMouseButtonDown(0))) {  // mouse button
+        if (!isPaused) {
 
-            this.isArrowRotating = false;
-            this.isMoving = true;
-            this.movement = this.arrowObject.transform.up;
+            float inputPositionY = 0;
+            bool tapped = false;
 
-            this.arrowObject.SetActive(false);
+            if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began)) {
+                inputPositionY = Input.GetTouch(0).position.y;
+                tapped = true;
+            }
 
+            if (Input.GetMouseButtonDown(0)) {
+                inputPositionY = Input.mousePosition.y;
+                tapped = true;
+            }
+
+            if ((tapped) && (inputPositionY < Screen.height * 0.8)) {
+                Debug.Log("InputY: " + inputPositionY + "; ScreenY: " + Screen.height);
+                startMoving();
+            }
+
+        } else {
+            onResume();
         }
+
+        // tapping part
+
     }
+
 
     // Physical update
     private void FixedUpdate() {
+        // this.rb.AddForce(movement * speed);
         this.transform.position += movement * speed;
         this.arrowObject.transform.position = this.transform.position;
     }
 
-    // for obstacles
+
+    // pause
+    public void onPause() {
+        stopMoving();
+        isPaused = true;
+        Time.timeScale = 0;
+        resumeText.SetActive(true);
+        Debug.Log("Paused");
+    }
+
+
+    // resume
+    public void onResume() {
+        resumeText.SetActive(false);
+        startMoving();
+        isPaused = false;
+        Time.timeScale = 1;
+        Debug.Log("Resume");
+    }
+
+
+    // shoots the pancake
+    private void startMoving() {
+
+        Debug.Log("Start moving");
+
+        jumpSfx.Play();
+
+        this.isArrowRotating = false;
+        this.isMoving = true;
+        this.movement = this.arrowObject.transform.up;
+
+        this.arrowObject.SetActive(false);
+
+    }
+
+    // stops the pancake
+    private void stopMoving() {
+
+        this.movement = new Vector3(0, 0, 0);
+        this.rb.velocity = new Vector3(0, 0, 0);
+        this.rb.angularVelocity = new Vector3(0, 0, 0);
+        this.arrowObject.SetActive(true);
+
+        // reset control
+        this.isArrowRotating = true;
+        this.isMoving = false;
+
+    }
+
+   
+    // collision detection for obstacles
     private void OnCollisionEnter(Collision other) {
         Debug.Log("Collision Entered: " + other.gameObject);
 
         if (other.gameObject.CompareTag("obstacle")) {
             
-            // play sound
+            towallSfx.Play();
 
             // stick to the obstacle
             this.movement = new Vector3(0, 0, 0);
@@ -84,7 +168,7 @@ public class PlayerController : MonoBehaviour {
     }
 
 
-    // OnTriggerEnter is called when the Collider other enters the trigger.
+    // trigger detection for bears and houses
     void OnTriggerEnter(Collider other) {
 
         Debug.Log("Trigger Entered: " + other);
@@ -92,24 +176,24 @@ public class PlayerController : MonoBehaviour {
         if (other.gameObject.CompareTag("edible")) {
             removeObject(other.gameObject);
             this.bearsEaten++;
-
-            // TODO: add score text
+            this.scoreText.GetComponent<Text>().text = "TEDDY BEARS EATEN: " + this.bearsEaten + "\nHOUSE LIT: " + this.houseLit;
+            eatSfx.Play();
         } else if (other.gameObject.CompareTag("inedible")) {
             removeObject(this.gameObject);
             removeObject(this.arrowObject.gameObject);
-            // TODO: play sound
+            dieSfx.Play();
             endGame();
         } else if (other.gameObject.CompareTag("house")) {
             // light up the house (change the image)
             this.houseLit++;
-            // TODO: add score text
+            this.scoreText.GetComponent<Text>().text = "TEDDY BEARS EATEN: " + this.bearsEaten + "\nHOUSE LIT: " + this.houseLit;
+            lightSfx.Play();
         }
     }
 
     private void endGame() {
-        // TODO: ends the game
-
         Debug.Log("game ends");
+        SceneManager.LoadScene("GameScene");
     }
 
     private void removeObject(GameObject obj) {

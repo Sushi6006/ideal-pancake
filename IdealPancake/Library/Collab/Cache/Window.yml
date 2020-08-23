@@ -1,0 +1,185 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe70aba2e7074048aca5de573b64a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimpleSelectedItems:
+    m_Keys:
+    - Assets/Fonts.meta
+    - Assets/Fonts/AaChaoMianJin-2.ttf
+    - Assets/Fonts/AaChaoMianJin-2.ttf.meta
+    - Assets/Fonts/Trattatello.ttf
+    - Assets/Fonts/Trattatello.ttf.meta
+    - Assets/Images.meta
+    - Assets/Images/background.meta
+    - Assets/Images/background/background.png
+    - Assets/Images/background/background.png.meta
+    - Assets/Images/background/temp-bg.png
+    - Assets/Images/background/temp-bg.png.meta
+    - Assets/Images/gameobjects.meta
+    - Assets/Images/gameobjects/arrow.png
+    - Assets/Images/gameobjects/arrow.png.meta
+    - Assets/Images/gameobjects/house-colour.png
+    - Assets/Images/gameobjects/house-colour.png.meta
+    - Assets/Images/gameobjects/house-dark.png
+    - Assets/Images/gameobjects/house-dark.png.meta
+    - Assets/Images/gameobjects/house-light.png
+    - Assets/Images/gameobjects/house-light.png.meta
+    - Assets/Images/gameobjects/pancake.png
+    - Assets/Images/gameobjects/pancake.png.meta
+    - Assets/Images/gameobjects/teddybear-1.png
+    - Assets/Images/gameobjects/teddybear-1.png.meta
+    - Assets/Images/gameobjects/teddybear-2.png
+    - Assets/Images/gameobjects/teddybear-2.png.meta
+    - Assets/Images/others.meta
+    - Assets/Images/others/pause.png
+    - Assets/Images/others/pause.png.meta
+    - Assets/Images/others/speaker-off-final.png
+    - Assets/Images/others/speaker-off-final.png.meta
+    - Assets/Images/others/speaker-on-final.png
+    - Assets/Images/others/speaker-on-final.png.meta
+    - Assets/Materials.meta
+    - Assets/Materials/DefaultPancake.mat
+    - Assets/Materials/DefaultPancake.mat.meta
+    - Assets/Scenes.meta
+    - Assets/Scenes/Button Colour.asset
+    - Assets/Scenes/Button Colour.asset.meta
+    - Assets/Scenes/EndScene.unity
+    - Assets/Scenes/EndScene.unity.meta
+    - Assets/Scenes/GameScene.unity
+    - Assets/Scenes/GameScene.unity.meta
+    - Assets/Scripts.meta
+    - Assets/Scripts/BGLoop.cs
+    - Assets/Scripts/BGLoop.cs.meta
+    - Assets/Scripts/CameraController.cs
+    - Assets/Scripts/CameraController.cs.meta
+    - Assets/Scripts/EventHandler.cs
+    - Assets/Scripts/EventHandler.cs.meta
+    - Assets/Scripts/Information.cs
+    - Assets/Scripts/Information.cs.meta
+    - Assets/Scripts/PlayerController.cs
+    - Assets/Scripts/PlayerController.cs.meta
+    - Assets/Scripts/Spawner.cs
+    - Assets/Scripts/Spawner.cs.meta
+    - Assets/Sounds.meta
+    - Assets/Sounds/bgm.mp3
+    - Assets/Sounds/bgm.mp3.meta
+    - Assets/Sounds/die.wav
+    - Assets/Sounds/die.wav.meta
+    - Assets/Sounds/eat.wav
+    - Assets/Sounds/eat.wav.meta
+    - Assets/Sounds/jump.wav
+    - Assets/Sounds/jump.wav.meta
+    - Assets/Sounds/light.wav
+    - Assets/Sounds/light.wav.meta
+    - Assets/Sounds/towall.wav
+    - Assets/Sounds/towall.wav.meta
+    - Assets/Sprites.meta
+    - Assets/Sprites/edible-bear.prefab
+    - Assets/Sprites/edible-bear.prefab.meta
+    - Assets/Sprites/house-colour.prefab
+    - Assets/Sprites/house-colour.prefab.meta
+    - Assets/Sprites/house-light.prefab
+    - Assets/Sprites/house-light.prefab.meta
+    - Assets/Sprites/inedible-bear.prefab
+    - Assets/Sprites/inedible-bear.prefab.meta
+    - Assets/Sprites/pancake.prefab
+    - Assets/Sprites/pancake.prefab.meta
+    - Assets/Sprites/tempObstacle.prefab
+    - Assets/Sprites/tempObstacle.prefab.meta
+    - Assets/TextMesh Pro.meta
+    - Assets/TextMesh Pro/Documentation.meta
+    - Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf
+    - Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
+    - Assets/TextMesh Pro/Fonts.meta
+    - Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt
+    - Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt.meta
+    - Assets/TextMesh Pro/Fonts/LiberationSans.ttf
+    - Assets/TextMesh Pro/Fonts/LiberationSans.ttf.meta
+    - Assets/TextMesh Pro/Resources.meta
+    - Assets/TextMesh Pro/Resources/Fonts & Materials.meta
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat.meta
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset.meta
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat.meta
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset.meta
+    - Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt
+    - Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta
+    - Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt
+    - Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta
+    - Assets/TextMesh Pro/Resources/Sprite Assets.meta
+    - Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset
+    - Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta
+    - Assets/TextMesh Pro/Resources/Style Sheets.meta
+    - Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset
+    - Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta
+    - Assets/TextMesh Pro/Resources/TMP Settings.asset
+    - Assets/TextMesh Pro/Resources/TMP Settings.asset.meta
+    - Assets/TextMesh Pro/Shaders.meta
+    - Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader
+    - Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader
+    - Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader
+    - Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_Sprite.shader
+    - Assets/TextMesh Pro/Shaders/TMP_Sprite.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMPro.cginc
+    - Assets/TextMesh Pro/Shaders/TMPro.cginc.meta
+    - Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc
+    - Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc.meta
+    - Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc
+    - Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc.meta
+    - Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc
+    - Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc.meta
+    - Assets/TextMesh Pro/Sprites.meta
+    - Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt
+    - Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt.meta
+    - Assets/TextMesh Pro/Sprites/EmojiOne.json
+    - Assets/TextMesh Pro/Sprites/EmojiOne.json.meta
+    - Assets/TextMesh Pro/Sprites/EmojiOne.png
+    - Assets/TextMesh Pro/Sprites/EmojiOne.png.meta
+    - Packages/manifest.json
+    - Packages/packages-lock.json
+    - ProjectSettings/EditorSettings.asset
+    - ProjectSettings/ProjectSettings.asset
+    - ProjectSettings/ProjectVersion.txt
+    - ProjectSettings/TagManager.asset
+    - ProjectSettings/VersionControlSettings.asset
+    - 
+    m_Values: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  RevisionSummary: 
+  ChangesSearchValue: 
+  SelectedHistoryRevision: 
+  HistoryPageNumber: 0
+  TabIndex: 0

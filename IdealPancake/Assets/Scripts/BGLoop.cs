@@ -37,7 +37,7 @@ public class BGLoop : MonoBehaviour
 
 
     // reposition
-    void repositionChildObjects(GameObject obj){
+    void repositionChildObjects(GameObject obj) {
         
         Transform[] children = obj.GetComponentsInChildren<Transform>();
         
