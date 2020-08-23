@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
+    // for boundaries
+    public const float Y_MAX = 5.0f;
+    public const float Y_MIN = -5.0f;
+    private float pancakeY;
+    private bool onBoundDetected = false;
+
     // player physics
     public float speed = 1;
     public float gravity = -10.0f;
@@ -48,6 +54,8 @@ public class PlayerController : MonoBehaviour {
 
         this.scoreText.GetComponent<Text>().text = "TEDDY BEARS EATEN: 0\nHOUSE LIT: 0";
 
+        this.pancakeY = this.GetComponent<Collider>().bounds.size.y;
+
         resumeText.SetActive(false);
 
     }
@@ -84,8 +92,6 @@ public class PlayerController : MonoBehaviour {
             onResume();
         }
 
-        // tapping part
-
     }
 
 
@@ -94,6 +100,33 @@ public class PlayerController : MonoBehaviour {
         // this.rb.AddForce(movement * speed);
         this.transform.position += movement * speed;
         this.arrowObject.transform.position = this.transform.position;
+
+        float maxBound = (float)(Y_MAX - this.pancakeY * 0.5);
+        float minBound = (float)(Y_MIN + this.pancakeY * 0.5);
+        if (this.transform.position.y <= minBound) {
+            this.transform.position = new Vector3(
+                this.transform.position.x,
+                (float)minBound,
+                this.transform.position.z
+            );
+            stopMoving();
+            if (!onBoundDetected) {
+                onBoundDetected = true;
+                towallSfx.Play();
+            }
+        }
+        if (this.transform.position.y >= maxBound) {
+            this.transform.position = new Vector3(
+                this.transform.position.x,
+                (float)maxBound,
+                this.transform.position.z
+            );
+            stopMoving();
+            if (!onBoundDetected) {
+                onBoundDetected = true;
+                towallSfx.Play();
+            }
+        }
     }
 
 
@@ -110,6 +143,7 @@ public class PlayerController : MonoBehaviour {
     // resume
     public void onResume() {
         resumeText.SetActive(false);
+        this.movement = new Vector3(0.0f, 0.0f, 0.0f);
         startMoving();
         isPaused = false;
         Time.timeScale = 1;
@@ -123,6 +157,7 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("Start moving");
 
         jumpSfx.Play();
+        this.onBoundDetected = false;
 
         this.isArrowRotating = false;
         this.isMoving = true;
