@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     // player physics
     public float speed = 1;
+    public float gravity = -10.0f;
 
     // physics
     private Vector3 movement;       // the movement of the pancake
@@ -21,11 +22,16 @@ public class PlayerController : MonoBehaviour {
     // TODO: sound to be added
 
     // scores
-    // TODO: scores to be added
+    private int bearsEaten = 0;
+    private int houseLit = 0;
+    public GameObject scoreText;
 
 
     // Start is called before the first frame update
     void Start() {
+
+        Physics.gravity = new Vector3(0.0f, gravity, 0.0f);
+
         this.rb = GetComponent<Rigidbody>();
         this.isMoving = false;
         this.isArrowRotating = true;
@@ -46,34 +52,69 @@ public class PlayerController : MonoBehaviour {
             this.isMoving = true;
             this.movement = this.arrowObject.transform.up;
 
+            this.arrowObject.SetActive(false);
+
         }
     }
 
-    // physical update: 
-    //   - arrow keys
+    // Physical update
     private void FixedUpdate() {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
         this.transform.position += movement * speed;
         this.arrowObject.transform.position = this.transform.position;
-
     }
 
     // for obstacles
     private void OnCollisionEnter(Collision other) {
-        Debug.Log("entered: " + other.gameObject);
+        Debug.Log("Collision Entered: " + other.gameObject);
 
         if (other.gameObject.CompareTag("obstacle")) {
             
-            // play sound???
+            // play sound
 
             // stick to the obstacle
+            this.movement = new Vector3(0, 0, 0);
             this.rb.velocity = new Vector3(0, 0, 0);
             this.rb.angularVelocity = new Vector3(0, 0, 0);
+            this.arrowObject.SetActive(true);
 
             // reset control
             this.isArrowRotating = true;
             this.isMoving = false;
+        }
+    }
+
+
+    // OnTriggerEnter is called when the Collider other enters the trigger.
+    void OnTriggerEnter(Collider other) {
+
+        Debug.Log("Trigger Entered: " + other);
+
+        if (other.gameObject.CompareTag("edible")) {
+            removeObject(other.gameObject);
+            this.bearsEaten++;
+
+            // TODO: add score text
+        } else if (other.gameObject.CompareTag("inedible")) {
+            removeObject(this.gameObject);
+            removeObject(this.arrowObject.gameObject);
+            // TODO: play sound
+            endGame();
+        } else if (other.gameObject.CompareTag("house")) {
+            // light up the house (change the image)
+            this.houseLit++;
+            // TODO: add score text
+        }
+    }
+
+    private void endGame() {
+        // TODO: ends the game
+
+        Debug.Log("game ends");
+    }
+
+    private void removeObject(GameObject obj) {
+        if (obj != null) {
+            Destroy(obj, 0.0f);
         }
     }
 
