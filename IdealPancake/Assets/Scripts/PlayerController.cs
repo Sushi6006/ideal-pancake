@@ -43,6 +43,9 @@ public class PlayerController : MonoBehaviour {
     private bool isPaused = false;
     public GameObject resumeText;
 
+    // lighting up
+    public GameObject litHouse;
+    
 
     // Start is called before the first frame update
     void Start() {
@@ -57,7 +60,7 @@ public class PlayerController : MonoBehaviour {
 
         this.pancakeY = this.GetComponent<Collider>().bounds.size.y;
 
-        // pauseButton.SetActive(false);
+        pauseButton.SetActive(false);
         resumeText.SetActive(false);
 
     }
@@ -225,6 +228,13 @@ public class PlayerController : MonoBehaviour {
             this.houseLit++;
             this.scoreText.GetComponent<Text>().text = "TEDDY BEARS EATEN: " + this.bearsEaten + "\nHOUSE LIT: " + this.houseLit;
             lightSfx.Play();
+            other.gameObject.SetActive(false);
+            GameObject newHouse = Instantiate(litHouse, new Vector3(
+                other.gameObject.transform.position.x,
+                other.gameObject.transform.position.y,
+                -3
+            ), Quaternion.identity) as GameObject;
+            newHouse.SetActive(true);
         }
     }
 
