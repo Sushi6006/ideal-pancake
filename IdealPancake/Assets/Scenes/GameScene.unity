@@ -666,7 +666,7 @@ Transform:
   m_LocalScale: {x: 0.46293554, y: 0.46293554, z: 0.46293554}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1138989588
 PrefabInstance:
@@ -734,6 +734,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: edible-bear
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763805537562699003, guid: 94421105693144c27b7e8acd618ab24a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94421105693144c27b7e8acd618ab24a, type: 3}
@@ -819,6 +824,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1554858807
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2728127716839761175, guid: 37c83563f51944509bb09f1048a0a05c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.29734
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728127716839761175, guid: 37c83563f51944509bb09f1048a0a05c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0113441
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728127716839761175, guid: 37c83563f51944509bb09f1048a0a05c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728127716839761175, guid: 37c83563f51944509bb09f1048a0a05c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728127716839761175, guid: 37c83563f51944509bb09f1048a0a05c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728127716839761175, guid: 37c83563f51944509bb09f1048a0a05c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728127716839761175, guid: 37c83563f51944509bb09f1048a0a05c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728127716839761175, guid: 37c83563f51944509bb09f1048a0a05c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728127716839761175, guid: 37c83563f51944509bb09f1048a0a05c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728127716839761175, guid: 37c83563f51944509bb09f1048a0a05c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728127716839761175, guid: 37c83563f51944509bb09f1048a0a05c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864097059271194265, guid: 37c83563f51944509bb09f1048a0a05c,
+        type: 3}
+      propertyPath: m_Name
+      value: inedible-bear
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37c83563f51944509bb09f1048a0a05c, type: 3}
 --- !u!1 &1686481752
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +923,7 @@ Transform:
   - {fileID: 1274268202}
   - {fileID: 849470030}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1933690561
 PrefabInstance:
@@ -949,7 +1023,7 @@ Transform:
   m_Children:
   - {fileID: 182076563}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8337081774601844596
 PrefabInstance:
@@ -962,11 +1036,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_UseGravity
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337081775367345444, guid: 2dca1ec4f9d3a403a9859ba40cd63e96,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 8337081775367345465, guid: 2dca1ec4f9d3a403a9859ba40cd63e96,
         type: 3}
@@ -1028,21 +1097,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8337081775367345466, guid: 2dca1ec4f9d3a403a9859ba40cd63e96,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 8337081775367345467, guid: 2dca1ec4f9d3a403a9859ba40cd63e96,
         type: 3}
       propertyPath: arrowObject
       value: 
       objectReference: {fileID: 1274268201}
-    - target: {fileID: 8337081775367345467, guid: 2dca1ec4f9d3a403a9859ba40cd63e96,
-        type: 3}
-      propertyPath: force
-      value: 1000000
-      objectReference: {fileID: 0}
     - target: {fileID: 8337081775367345467, guid: 2dca1ec4f9d3a403a9859ba40cd63e96,
         type: 3}
       propertyPath: speed
